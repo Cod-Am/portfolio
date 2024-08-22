@@ -64,30 +64,33 @@ html {
 }
 
 .coverpage-image {
-    width: 35%; /* Adjust width as needed */
+    width: 50%; /* Adjust width as needed */
     height: auto;
     position: absolute;
-    left: 0; /* Start off-screen to the left */
     top: 50%;
-    transform: translateY(-50%);
-    transition: left 1s ease-in-out;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the image */
+    transition: transform 1s ease-in-out; /* Smooth transition for the hover effect */
+    z-index: 1; /* Ensure the image is on top of other content */
 }
 
 .coverpage-text {
     position: relative;
-    z-index: 1; /* Ensure text appears above the image */
-    transform: translateX(0); /* Start in the center */
-    transition: transform 1s ease-in-out;
+    z-index: 0; /* Ensure the text is behind the image initially */
+    transform: translateX(-20%); /* Start slightly off-screen */
+    opacity: 0; /* Hide text initially */
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out; /* Smooth transition */
     color: #ffffff;
 }
 
 /* Hover effect for animations */
 .coverpage-contents:hover .coverpage-image {
-    left: -50%; /* Slide the image to the left */
+    transform: translate(-150%, -50%); /* Slide the image to the left */
 }
 
 .coverpage-contents:hover .coverpage-text {
-    transform: translateX(20%); /* Slightly slide the text to the right */
+    transform: translateX(0); /* Slide the text into view */
+    opacity: 1; /* Fade in the text */
 }
 
 /* Line-by-line fade-in effect */
