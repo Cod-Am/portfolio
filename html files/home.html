@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
     <link rel="stylesheet" href="../css files/home_style.css">
 </head>
 <body>
@@ -17,16 +20,14 @@
             <div class="coverpage-wrapper">
                 <img src="../images/Grey White Minimalist Simple Modern  Refined Scrapbook Art Event Instagram Post.png" alt="image not found" class="coverpage-image">
                 <div class="coverpage-text">
-                    <h1>Welcome to My Portfolio</h1>
-                    <div>cover page</div>
+                    <h1><span class="line">Welcome to</span> <span class="line">My Portfolio</span></h1>
+                    <div><span class="line">cover page</span></div>
                 </div>
             </div>
         </div>
         <div class="about-page-contents">
             <h1 id="about">Myself</h1>
-            <div>
-                about me
-            </div>
+            <div>about me</div>
         </div>
         <div class="project-page-contents">
             <h1 id="work">Projects</h1>
@@ -34,9 +35,7 @@
         </div>
         <div class="contact-page-contents">
             <h1 id="contact">Contact Me!!</h1>
-            <div>
-                my contacts
-            </div>
+            <div>my contacts</div>
         </div>
     </div>
     <script>
@@ -44,7 +43,7 @@
             const coverpage = document.querySelector('.coverpage-contents');
             const coverpagePosition = coverpage.getBoundingClientRect().top;
             const screenPosition = window.innerHeight / 1.5;
-    
+
             if (coverpagePosition < screenPosition) {
                 coverpage.classList.add('scrolled');
             } else {
@@ -52,6 +51,5 @@
             }
         });
     </script>
-    
 </body>
 </html>

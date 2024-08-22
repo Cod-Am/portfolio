@@ -8,11 +8,11 @@
 html, body {
     width: 100%;
     height: 100%;
+    overflow-x: hidden; /* Hide horizontal overflow */
 }
 
 .page-settings {
     width: 100%;
-    overflow-x: hidden; /* Hide any horizontal overflow */
 }
 
 /* Smooth scroll behavior */
@@ -41,21 +41,6 @@ html {
     text-decoration: underline; /* Optional: Add underline on hover for better UX */
 }
 
-.coverpage-image {
-    width: 35%;
-    height: auto;
-    position: absolute; /* Position the image absolutely within the coverpage-wrapper */
-    left: -35%; /* Start off-screen to the left */
-    top: 50%;
-    transform: translateY(-50%);
-    transition: left 1s ease-in-out; /* Smooth transition for the animation */
-}
-
-.coverpage-text {
-    position: relative; /* Relative positioning to allow animation */
-    z-index: 1; /* Ensure text appears above the image */
-}
-
 .coverpage-contents {
     height: 100vh;
     display: flex;
@@ -64,27 +49,60 @@ html {
     text-align: center;
     background-color: #000000;
     color: #ffffff;
-    overflow: hidden; /* Hide overflow to ensure clean animation */
+    position: relative; /* To manage absolute positioning of children */
+    overflow: hidden; /* Hide overflow for a clean animation */
+    cursor: pointer; /* Show pointer cursor to indicate hover effect */
 }
 
 .coverpage-wrapper {
     position: relative;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.coverpage-contents.scrolled .coverpage-image {
-    left: 0; /* Slide in from the left */
-}
-
-.coverpage-contents.scrolled .coverpage-text {
-    transform: translateX(0); /* Slide in from the right */
+.coverpage-image {
+    width: 35%; /* Adjust width as needed */
+    height: auto;
+    position: absolute;
+    left: 0; /* Start off-screen to the left */
+    top: 50%;
+    transform: translateY(-50%);
+    transition: left 1s ease-in-out;
 }
 
 .coverpage-text {
-    position: absolute;
-    right: -50%; /* Start off-screen to the right */
-    top: 50%;
-    transform: translateY(-50%) translateX(50%);
-    transition: right 1s ease-in-out; /* Smooth transition for the animation */
+    position: relative;
+    z-index: 1; /* Ensure text appears above the image */
+    transform: translateX(0); /* Start in the center */
+    transition: transform 1s ease-in-out;
+    color: #ffffff;
+}
+
+/* Hover effect for animations */
+.coverpage-contents:hover .coverpage-image {
+    left: -50%; /* Slide the image to the left */
+}
+
+.coverpage-contents:hover .coverpage-text {
+    transform: translateX(20%); /* Slightly slide the text to the right */
+}
+
+/* Line-by-line fade-in effect */
+.line {
+    display: block;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.line:nth-child(1) { animation-delay: 0.5s; }
+.line:nth-child(2) { animation-delay: 1s; }
+.line:nth-child(3) { animation-delay: 1.5s; }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
