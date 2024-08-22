@@ -1,0 +1,90 @@
+/* Reset default margin and padding for the entire page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.page-settings {
+    width: 100%;
+    overflow-x: hidden; /* Hide any horizontal overflow */
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center the items vertically */
+    text-align: center;
+    width: 100%; /* Ensure the nav bar spans the full width of the page */
+    background-color: #000000; /* Optional: Add a background color for better visibility */
+    padding: 10px 0; /* Optional: Add some padding for spacing */
+}
+
+.container {
+    margin: 0 15px; /* Add some space between the items */
+    text-decoration: none; /* Remove underline from links */
+    color: #ffffff; /* Optional: Change text color */
+    font-size: 16px; /* Optional: Adjust font size */
+}
+
+.container:hover {
+    text-decoration: underline; /* Optional: Add underline on hover for better UX */
+}
+
+.coverpage-image {
+    width: 35%;
+    height: auto;
+    position: absolute; /* Position the image absolutely within the coverpage-wrapper */
+    left: -35%; /* Start off-screen to the left */
+    top: 50%;
+    transform: translateY(-50%);
+    transition: left 1s ease-in-out; /* Smooth transition for the animation */
+}
+
+.coverpage-text {
+    position: relative; /* Relative positioning to allow animation */
+    z-index: 1; /* Ensure text appears above the image */
+}
+
+.coverpage-contents {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #000000;
+    color: #ffffff;
+    overflow: hidden; /* Hide overflow to ensure clean animation */
+}
+
+.coverpage-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.coverpage-contents.scrolled .coverpage-image {
+    left: 0; /* Slide in from the left */
+}
+
+.coverpage-contents.scrolled .coverpage-text {
+    transform: translateX(0); /* Slide in from the right */
+}
+
+.coverpage-text {
+    position: absolute;
+    right: -50%; /* Start off-screen to the right */
+    top: 50%;
+    transform: translateY(-50%) translateX(50%);
+    transition: right 1s ease-in-out; /* Smooth transition for the animation */
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example Page</title>
+  </head>
+  <body>
+    <!-- First iframe -->
+    <h2>Section 1</h2>
+    <p>This is the first iframe:</p>
+    <iframe id="iframe1" src="https://www.example.com"></iframe>
+
+    <!-- Second iframe -->
+    <h2>Section 2</h2>
+    <p>This is the second iframe:</p>
+    <iframe id="iframe2" src=""></iframe>
+
+    <!-- Link to load content page in second iframe and jump to section -->
+    <p>Click the button to load the content page in the second iframe and jump to the section:</p>
+    <button onclick="loadContentPage()">Load Content Page and Jump to Section 2</button>
+
+    <!-- JavaScript function to load content page and jump to section -->
+    <script>
+      function loadContentPage() {
+        // Get reference to the second iframe
+        var iframe2 = document.getElementById("iframe2");
+
+        // Set the source of the second iframe to the content page with the desired section ID
+        iframe2.src = "https://www.example.com/content-page.html#section2";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../css files/home_style.css">
+</head>
+<body>
+    <div class="page-settings">
+        <div class="nav-bar">
+            <div class="container">Portfolio</div>
+            <div>
+                <a class="container" href="#about">About</a>
+                <a class="container" href="#work">Work</a>
+                <a class="container" href="#contact">Contact</a>
+            </div>
+        </div>
+        <div class="coverpage-contents">
+            <div class="coverpage-wrapper">
+                <img src="../images/Grey White Minimalist Simple Modern  Refined Scrapbook Art Event Instagram Post.png" alt="image not found" class="coverpage-image">
+                <div class="coverpage-text">
+                    <h1>Welcome to My Portfolio</h1>
+                    <div>cover page</div>
+                </div>
+            </div>
+        </div>
+        <div class="about-page-contents">
+            <h1 id="about">Myself</h1>
+            <div>
+                about me
+            </div>
+        </div>
+        <div class="project-page-contents">
+            <h1 id="work">Projects</h1>
+            <div>all of my projects</div>
+        </div>
+        <div class="contact-page-contents">
+            <h1 id="contact">Contact Me!!</h1>
+            <div>
+                my contacts
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('scroll', function() {
+            const coverpage = document.querySelector('.coverpage-contents');
+            const coverpagePosition = coverpage.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.5;
+    
+            if (coverpagePosition < screenPosition) {
+                coverpage.classList.add('scrolled');
+            } else {
+                coverpage.classList.remove('scrolled');
+            }
+        });
+    </script>
+    
+</body>
+</html>
